@@ -2,11 +2,11 @@
 <hr/>
 ## Default Project
 <hr/>
-[x] : Spring 5   
-[x] : jsp & servlet   
-[x] : mysql & Oracle 11g   
-[x] : javascript & JQuery   
-[x] : batch    
-[x] : oracle job & cron     
-[x] : mybatis   
+[ ] Spring 5   
+[ ] : jsp & servlet   
+[ ] : mysql & Oracle 11g   
+[ ] : javascript & JQuery   
+[ ] : batch    
+[ ] : oracle job & cron     
+[ ] : mybatis   
 
