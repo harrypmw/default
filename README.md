@@ -9,4 +9,4 @@
 <br>[ ] : batch    
 <br>[ ] : oracle job & cron     
 <br>[x] : mybatis   
-
+<br> 박다인 바보 멍청이 똥꾸멍 ㅋㅋㅋㅋ
