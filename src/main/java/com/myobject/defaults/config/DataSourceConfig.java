@@ -29,7 +29,6 @@ public class DataSourceConfig {
 
 	@Bean
 	public DataSource dataSource() {
-
 		HikariConfig hikariConfig = new HikariConfig();
 		hikariConfig.setDriverClassName(driverClassName);
 		hikariConfig.setJdbcUrl(jdbcUrl);
