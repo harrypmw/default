@@ -1,5 +1,6 @@
 package com.myobject.defaults.controller;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,9 +15,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.myobject.defaults.sample.SampleDTO;
 import com.myobject.defaults.sample.SampleDTOList;
@@ -104,7 +107,7 @@ public class SampleController {
 		model.addAttribute("page", page);
 		model.addAttribute("sampleDTO", dto);
 		//return "/sample/sampleTest";
-		return "redirect:/";
+		return "/sample/sampleTest";
 	}
 
 	@GetMapping("/jacksonTest")
@@ -122,5 +125,21 @@ public class SampleController {
 		HttpHeaders header = new HttpHeaders();
 		header.add("Content-Type", "application/json;charset=UTF-8");
 		return new ResponseEntity<String>(msgArray, header, HttpStatus.OK);
+	}
+	@GetMapping("/sampleUpload")
+	public void sampleUpload() {
+
+	}
+
+	@PostMapping("/uploadTest")
+	public void uploadTest(ArrayList<MultipartFile> files) {
+		log.info(new Object() {}.getClass().getEnclosingMethod().getName()+" Start");
+		files.forEach(file ->{
+			log.info("-------------------------------------------------------");
+			log.info("file Name : " + file.getOriginalFilename());
+			log.info("file Size : " + file.getSize());
+			log.info("-------------------------------------------------------");
+		});
+		log.info(new Object() {}.getClass().getEnclosingMethod().getName()+" END");
 	}
 }

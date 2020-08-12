@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @ComponentScan(basePackages= {"com.myobject.defaults.*"})
 @Import({PropertyConfig.class, DataSourceConfig.class,
-		 MyBatisConfig.class})
+		 MyBatisConfig.class, FileUploadConfig.class})
 public class RootConfig {
 
 }
