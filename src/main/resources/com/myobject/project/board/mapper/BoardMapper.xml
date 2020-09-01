@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org//dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myobject.project.board.mapper.BoardMapper">
+	<select id="getList" resultType="com.myobject.project.board.domain.BoardVO">
+		<![CDATA[
+		SELECT * FROM TBL_BOARD WHERE BNO > 0
+		]]>
+	</select>
+
+	<insert id="insert">
+		INSERT INTO TBL_BOARD (TITLE, CONTENT, WRITER) VALUES (#{title}, #{content}, #{writer})
+	</insert>
+
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			SELECT MAX(BNO) + 1 FROM TBL_BOARD
+		</selectKey>
+
+		INSERT INTO TBL_BOARD (BNO, TITLE, CONTENT, WRITER) VALUES
+		(#{bno}, #{title}, #{content}, #{writer})
+	</insert>
+
+	<select id="read" resultType="com.myobject.project.board.domain.BoardVO">
+		SELECT * FROM TBL_BOARD WHERE BNO = #{bno}
+	</select>
+
+	<update id="update">
+		UPDATE TBL_BOARD
+		   SET TITLE = #{title},
+		   	   CONTENT = #{content},
+		   	   WRITER  = #{writer},
+		   	   updateDate = now()
+		 where bno = #{bno}
+	</update>
+</mapper>

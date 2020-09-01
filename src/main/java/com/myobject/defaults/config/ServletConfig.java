@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @ComponentScan(basePackages = { "com.myobject.*.*.controller", "com.myobject.*.controller"
-								,"com.myobject.*.exception"
+							   ,"com.myobject.*.*.exception"  , "com.myobject.*.exception"
 							  })
 public class ServletConfig implements WebMvcConfigurer {
 
