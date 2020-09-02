@@ -35,4 +35,8 @@
 		   	   updateDate = now()
 		 where bno = #{bno}
 	</update>
+
+	<delete id="delete">
+		DELETE FROM TBL_BOARD WHERE BNO = #{bno}
+	</delete>
 </mapper>
