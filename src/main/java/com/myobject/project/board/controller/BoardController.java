@@ -32,11 +32,16 @@ public class BoardController {
 	public String register(BoardVO board, RedirectAttributes rttr) {
 		boardService.insert(board);
 		log.info(board);
-		rttr.addAttribute("result", board.getBno());
+		rttr.addFlashAttribute("result", board.getBno());
 		return "redirect:/board/list";
 	}
 
-	@GetMapping("/get")
+	@GetMapping("/register")
+	public void register() {
+
+	}
+
+	@GetMapping({"/get", "/modify"})
 	public void get(@RequestParam("bno") Long bno, Model model) {
 		log.info(new Object() {}.getClass().getEnclosingMethod().getName());
 		log.info("[[ bno ]] : " + bno);
@@ -49,7 +54,7 @@ public class BoardController {
 		log.info("[[ board ]] : " + board);
 
 		if (boardService.update(board)) {
-			rttr.addAttribute("result", "success");
+			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/board/list";
 	}
@@ -60,7 +65,7 @@ public class BoardController {
 		log.info("[[ bno ]] : " + bno);
 
 		if (boardService.delete(bno)) {
-			rttr.addAttribute("result", "success");
+			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/board/list";
 	}
