@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.myobject.defaults.utils.Pagination;
 import com.myobject.project.board.domain.BoardVO;
 import com.myobject.project.board.service.BoardService;
 
@@ -22,10 +23,22 @@ public class BoardController {
 
 	private BoardService boardService;
 
+	/*
 	@GetMapping("/list")
 	public void list(Model model) {
 		log.info(new Object() {}.getClass().getEnclosingMethod().getName());
 		model.addAttribute("list", boardService.getList());
+	}
+	*/
+
+	@GetMapping("/list")
+	public void list(Pagination pages, Model model) {
+		log.info(new Object() {}.getClass().getEnclosingMethod().getName());
+		int total = boardService.getTotal(pages);
+
+		log.info("[[ total count ]] : " + total);
+		model.addAttribute("list", boardService.getList(pages));
+		model.addAttribute("pageMaker", new Pagination(pages.getPageNum(), pages.getAmount(), total));
 	}
 
 	@PostMapping("/register")

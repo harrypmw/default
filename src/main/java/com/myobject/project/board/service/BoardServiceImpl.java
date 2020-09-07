@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.myobject.defaults.utils.Pagination;
 import com.myobject.project.board.domain.BoardVO;
 import com.myobject.project.board.mapper.BoardMapper;
 
@@ -20,10 +21,17 @@ public class BoardServiceImpl implements BoardService{
 	 * */
 	private BoardMapper boardMapper;
 
+	/*
 	@Override
 	public List<BoardVO> getList() {
 		log.info(new Object() {}.getClass().getEnclosingMethod().getName());
 		return boardMapper.getList();
+	}
+	*/
+	@Override
+	public List<BoardVO> getList(Pagination pages) {
+		log.info(new Object() {}.getClass().getEnclosingMethod().getName());
+		return boardMapper.getListWithPaging(pages);
 	}
 
 	@Override
@@ -54,6 +62,12 @@ public class BoardServiceImpl implements BoardService{
 	public boolean update(BoardVO board) {
 		log.info(new Object(){}.getClass().getEnclosingMethod().getName());
 		return boardMapper.update(board) == 1;
+	}
+
+	@Override
+	public int getTotal(Pagination pages) {
+		log.info(new Object(){}.getClass().getEnclosingMethod().getName());
+		return boardMapper.getTotalCount(pages);
 	}
 
 }

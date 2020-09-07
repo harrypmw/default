@@ -12,7 +12,9 @@
 
 	<select id="getListWithPaging" resultType="com.myobject.project.board.domain.BoardVO">
 		<![CDATA[
-		SELECT * FROM TBL_BOARD WHERE BNO BETWEEN 0 AND 5 ORDER BY BNO ASC
+		SELECT * FROM (SELECT BNO FROM TBL_BOARD LIMIT (#{pageNum}-1) * #{amount}, #{pageNum} * #{amount}) A
+ 	      JOIN TBL_BOARD B
+            ON (A.BNO = B.BNO)
 		]]>
 	</select>
 
@@ -45,4 +47,8 @@
 	<delete id="delete">
 		DELETE FROM TBL_BOARD WHERE BNO = #{bno}
 	</delete>
+
+	<select id="getTotalCount" resultType="int">
+	SELECT COUNT(*) FROM TBL_BOARD WHERE BNO > 0
+	</select>
 </mapper>

@@ -7,6 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.myobject.defaults.config.RootConfig;
+import com.myobject.defaults.utils.Pagination;
 import com.myobject.project.board.domain.BoardVO;
 import com.myobject.project.board.service.BoardService;
 
@@ -33,7 +34,7 @@ public class BoardServiceTest {
 		boardService.insert(board);
 		log.info("[[ board bno ]] : " + board.getBno());
 		*/
-		boardService.getList().forEach(boards -> log.info(boards));
+		boardService.getList(new Pagination(2,3)).forEach(boards -> log.info(boards));
 
 		Long bno = 6L;
 		BoardVO read = boardService.read(bno);
