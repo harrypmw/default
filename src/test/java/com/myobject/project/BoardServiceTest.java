@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.ui.Model;
 
 import com.myobject.defaults.config.RootConfig;
 import com.myobject.defaults.utils.Pagination;
@@ -34,7 +35,7 @@ public class BoardServiceTest {
 		boardService.insert(board);
 		log.info("[[ board bno ]] : " + board.getBno());
 		*/
-		boardService.getList(new Pagination(2,3)).forEach(boards -> log.info(boards));
+		//boardService.getList(model, "2", "3").forEach(boards -> log.info(boards));
 
 		Long bno = 6L;
 		BoardVO read = boardService.read(bno);

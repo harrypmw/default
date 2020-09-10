@@ -28,11 +28,12 @@ public class BoardMapperTest {
 	public void testGetList() {
 
 		Pagination pages = new Pagination();
+		/*
 		pages.setAmount(5);
 		pages.setPageNum(1);
 		List<BoardVO> list = boardMapper.getListWithPaging(pages);
 		list.forEach(boards -> log.info(boards));
-
+		*/
 		//boardMapper.getList().forEach(board -> log.info(board));
 	}
 

@@ -40,6 +40,10 @@
 
 								<form id='operForm' action="/board/modify" method="get">
 								<input type="hidden" id="bno" name="bno" value="${board.bno}">
+								<input type='hidden' name='pagenum' value='<c:out value="${pages.pagenum}"/>'>
+								<input type='hidden' name='contentnum'  value='<c:out value="${pages.contentnum}"/>'>
+								<input type='hidden' name='type'  value='<c:out value="${pages.type}"/>'>
+								<input type='hidden' name='keyword'  value='<c:out value="${pages.keyword}"/>'>
 								</form>
                         </div>
                         <!-- /.panel-body -->
