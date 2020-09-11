@@ -98,7 +98,8 @@ public class BoardController {
 	}
 
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr, @ModelAttribute("pages") Pagination pages) {
+	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr, Pagination pages) {
+	//public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr, @ModelAttribute("pages") Pagination pages) {
 		log.info(new Object() {}.getClass().getEnclosingMethod().getName());
 		log.info("[[ bno ]] : " + bno);
 		log.info("[[ pagenum ]] : " + pages.getPagenum());
@@ -107,10 +108,12 @@ public class BoardController {
 		if (boardService.delete(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		/*
 		rttr.addFlashAttribute("pagenum", pages.getPagenum());
 		rttr.addFlashAttribute("contentnum", pages.getContentnum());
 		rttr.addFlashAttribute("type", pages.getType());
 		rttr.addFlashAttribute("keyword", pages.getKeyword());
-		return "redirect:/board/list";
+		*/
+		return "redirect:/board/list" + pages.getListLik();
 	}
 }
