@@ -9,11 +9,13 @@ import com.myobject.defaults.utils.Pagination;
 import com.myobject.project.board.domain.ReplyVO;
 import com.myobject.project.board.mapper.ReplyMapper;
 
+import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @Service
 @Log4j
+@AllArgsConstructor
 public class ReplyServiceImpl implements ReplyService {
 
 	@Setter(onMethod_ = {@Autowired})
