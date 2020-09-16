@@ -18,4 +18,6 @@ public interface ReplyMapper {
 	public int update(ReplyVO replyVO);
 
 	public List<ReplyVO> pagingList(@Param("pages") Pagination pages, @Param("bno") Long bno);
+
+	public int getTotalCount();
 }

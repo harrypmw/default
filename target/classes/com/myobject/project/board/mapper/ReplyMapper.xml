@@ -31,4 +31,7 @@
 		 WHERE BNO = #{bno}
 		 ORDER BY RNO ASC
 	</select>
+	<select id="getTotalCount" resultType="int">
+	SELECT COUNT(*) FROM TBL_REPLY WHERE BNO > 0
+	</select>
 </mapper>

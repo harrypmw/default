@@ -16,4 +16,6 @@ public interface ReplyService {
 	public int remove(Long rno);
 
 	public List<ReplyVO> getList(Pagination pages, Long bno);
+
+	public int getTotalCount();
 }

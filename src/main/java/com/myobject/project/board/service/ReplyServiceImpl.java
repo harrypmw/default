@@ -51,4 +51,9 @@ public class ReplyServiceImpl implements ReplyService {
 		return replyMapper.pagingList(pages, bno);
 	}
 
+	@Override
+	public int getTotalCount() {
+		return replyMapper.getTotalCount();
+	}
+
 }
